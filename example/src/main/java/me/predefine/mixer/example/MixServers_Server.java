@@ -11,7 +11,7 @@ import me.predefine.mixer.api.MixService;
 @Mix("ru.minecraftonly.launcher.Servers_Server")
 public class MixServers_Server implements MixService {
     @Ingredient(value = "getName", point = InjectionPoint.AFTER_IMPLEMENTATION)
-    public static void getName_Hook(IngredientContext context)
+    public static void getName_Hook(IngredientContext<String> context)
     {
         context.setReturn("Mew");
     }

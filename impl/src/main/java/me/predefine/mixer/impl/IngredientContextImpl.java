@@ -2,7 +2,7 @@ package me.predefine.mixer.impl;
 
 import me.predefine.mixer.api.IngredientContext;
 
-public class IngredientContextImpl implements IngredientContext {
+public class IngredientContextImpl implements IngredientContext<Object> {
     private Object returnValue = null;
     private boolean canceled = false;
 

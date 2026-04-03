@@ -11,7 +11,7 @@ import me.predefine.mixer.api.MixService;
 @Mix("ru.minecraftonly.launcher.Updater")
 public class MixUpdater implements MixService {
     @Ingredient(value = "launcherHashMatches", point = InjectionPoint.BEFORE_IMPLEMENTATION)
-    public static void launcherHashMatches_Hook(IngredientContext context)
+    public static void launcherHashMatches_Hook(IngredientContext<Boolean> context)
     {
         System.out.println("Launcher hash matches is hooked :D");
         context.setReturn(true);
