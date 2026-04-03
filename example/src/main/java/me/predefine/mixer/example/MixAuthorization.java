@@ -10,11 +10,11 @@ import me.predefine.mixer.api.MixService;
 @Mix("ru.minecraftonly.launcher.Authorization")
 @AutoService(MixService.class)
 public class MixAuthorization implements MixService {
-    @Ingredient(value = "detectVirtualMachineName", point = InjectionPoint.BEFORE_IMPLEMENTATION)
+    @Ingredient(value = "detectVirtualMachineName", point = InjectionPoint.AFTER_IMPLEMENTATION)
     public static void detectVirtualMachineName_Hook(IngredientContext context)
     {
         System.out.println("detectVirtualMachineName is also hooked :D");
+        System.out.println(context.getReturn());
         context.setReturn(null);
-        context.cancel();
     }
 }

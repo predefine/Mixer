@@ -12,7 +12,6 @@ public class IngredientContextImpl implements IngredientContext {
         return canceled;
     }
 
-    @SuppressWarnings("unused")
     public Object getReturn()
     {
         return returnValue;

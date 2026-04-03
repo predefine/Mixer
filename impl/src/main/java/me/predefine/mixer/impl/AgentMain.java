@@ -25,10 +25,16 @@ public class AgentMain {
             if (recipes.length == 0)
                 return new byte[0];
 
-            BytecodeMixer mixer = new BytecodeMixer(bytes);
-            for (MixRecipe recipe : recipes)
-                mixer.mix(recipe);
-            return mixer.toBytecode();
+            try {
+                BytecodeMixer mixer = new BytecodeMixer(bytes);
+                for (MixRecipe recipe : recipes)
+                    mixer.mix(recipe);
+                return mixer.toBytecode();
+            } catch (Exception e)
+            {
+                e.printStackTrace();
+                return new byte[0];
+            }
         });
     }
 }
