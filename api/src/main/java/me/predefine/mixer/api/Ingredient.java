@@ -8,7 +8,9 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 public @interface Ingredient {
-    public String value(); // method name(ex. "append", "toString")
+    String value(); // method name(ex. "append", "toString", "append(Ljava/lang/String;)Ljava/lang/StringBuilder;")
 
-    public InjectionPoint point();
+    InjectionPoint point();
+
+    int argumentIndex() default -1; // required for MODIFY_ARGUMENT
 }

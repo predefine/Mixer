@@ -1,6 +1,7 @@
 package me.predefine.mixer.impl;
 
 import me.predefine.mixer.api.Ingredient;
+import me.predefine.mixer.api.InjectionPoint;
 import me.predefine.mixer.api.Mix;
 
 import java.lang.annotation.Annotation;
@@ -27,8 +28,11 @@ public class RecipeBook {
         for (Method method : clazz.getDeclaredMethods())
         {
             Ingredient ingredient = method.getAnnotation(Ingredient.class);
-            if (ingredient != null)
-                recipe.addIngredient(ingredient, method);
+            if (ingredient == null)
+                continue;
+            if (ingredient.point() == InjectionPoint.MODIFY_ARGUMENT && ingredient.argumentIndex() == -1)
+                throw new Exception("class " + clazz.getTypeName() + " contains MODIFY_ARGUMENT hook without specifying argumentIndex");
+            recipe.addIngredient(ingredient, method);
         }
 
         recipes.add(recipe);

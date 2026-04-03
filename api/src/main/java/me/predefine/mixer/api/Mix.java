@@ -8,5 +8,5 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 public @interface Mix {
-    public String value(); // class name (ex. "java.lang.StringBuilder")
+    String value(); // class name (ex. "java.lang.StringBuilder")
 }

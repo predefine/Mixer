@@ -40,6 +40,8 @@ public class MixRecipe {
     private boolean ingredientValidFor(Ingredient ingredient, int access, String name, String descriptor, String[] exceptions) {
         if (ingredient.value().equals(name))
             return true;
+        if (ingredient.value().equals(name + descriptor))
+            return true;
         return false;
     }
 }
